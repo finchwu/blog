@@ -2,23 +2,46 @@
 <html>
 <head>
   <title>Blog</title>
-  <meta name="description" content="website description" />
-  <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <%= stylesheet_link_tag "style" %>
-  <%= javascript_include_tag "javascripts/modernizr-1.5.min" %>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+  <meta name="author" content="Finch wu - sooone.com"/>
+  <meta name="description" content="Site Description Here"/>
+  <meta name="keywords" content="keywords, here"/>
+  <meta name="robots" content="index, follow, noarchive"/>
+  <%= stylesheet_link_tag "screen" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="main">
-  <%= render :partial => "layouts/head" %>
-  <div class="inner_copyright">Collect from <a href="http://www.sooone.com/" target="_blank" title=""></a></div>
-  <div id="site_content">
+
+<!--header -->
+<%= render :partial => "layouts/head" %>
+<!--/header-->
+
+<!-- content-outer -->
+<div id="content-wrap" class="clear">
+
+  <!-- content -->
+  <div id="content">
+
+    <!-- main -->
+    <div id="main">
+      <%= yield %>
+    </div>
+
+    <!-- /main -->
+
+    <!-- sidebar -->
     <%= render :partial => "layouts/siderbar" %>
-    <%= render :partial => "layouts/content" %>
+    <<>!-- /sidebar -->
+    <!-- content -->
   </div>
-  <%= render :partial => "layouts/footer" %>
+  <!-- /content-out -->
 </div>
 
+<!-- footer-outer -->
+<%= render :partial => "layouts/footer_outer" %>
+<!-- /footer-outer -->
+<!-- footer-bottom -->
+<%= render :partial => "layouts/footer" %>
+<!-- /footer-bottom-->
 </body>
 </html>
